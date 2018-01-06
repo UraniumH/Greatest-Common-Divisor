@@ -11,7 +11,7 @@ int main(){
 	long a,b;
 	cin>>a>>b;
 	long temp=zzxc(a,b);
-	cout<<temp<<endl;
-	cout<<(a/temp)*b<<endl;
+	cout<<"Greatest common devisor: "<<temp<<endl;
+	cout<<"Smallest common multiplier: "<<(a/temp)*b<<endl;
 	getchar();
 }
