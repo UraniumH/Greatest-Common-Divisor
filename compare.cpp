@@ -11,7 +11,7 @@ llong zzxc(llong fst,llong scd){
 		return zzxc(scd,fst%scd);
 	}
 }
-void recursion(int a,int b){
+void recursion(llong a,llong b){
 	clock_t begin,end;
 	begin = clock();
 	llong temp=zzxc(a,b);
@@ -21,7 +21,7 @@ void recursion(int a,int b){
 	cout<<"Time used: "<<(end-begin)<<endl<<endl;
 }
 
-void enumeration(int a,int b){
+void enumeration(llong a,llong b){
 	clock_t begin,end;
 	llong temp;
 	begin = clock();
@@ -37,7 +37,7 @@ void enumeration(int a,int b){
 	cout<<"Time used: "<<(end-begin)<<endl<<endl;
 }
 
-void multiplication(int a,int b){
+void multiplication(llong a,llong b){
 	clock_t begin,end;
 	llong temp;
 	begin = clock();
@@ -55,9 +55,9 @@ void multiplication(int a,int b){
 	cout<<"Time used: "<<(end-begin)<<endl<<endl;
 }
 
-bool hz(int a,int b){
+bool hz(llong a,llong b){
 	while(1){
-		int t = a%b;
+		llong t = a%b;
 		if(t == 0){
 			break;
 		}else{
@@ -71,7 +71,7 @@ bool hz(int a,int b){
 		return true;
 	}
 }
-void shortdivision(int a,int b){
+void shortdivision(llong a,llong b){
 	clock_t begin,end;
 	llong temp=1;
 	begin = clock();
@@ -98,8 +98,8 @@ void shortdivision(int a,int b){
 int main(int argc,char *argv[]){
 	llong a,b;
 	if(argc==2){
-		a=atoi(argv[0]);
-		b=atoi(argv[1]);
+		a=atol(argv[0]);
+		b=atol(argv[1]);
 	}else{
 		cin>>a>>b;
 	}
