@@ -14,6 +14,6 @@ int main(){
 	llong temp=zzxc(a,b);
 	cout<<"Greatest common devisor: "<<temp<<endl;
 	cout<<"Smallest common multiplier: "<<(a/temp)*b<<endl;
-	getchar();
+	system("pause>nul");
 	return 0;
 }
