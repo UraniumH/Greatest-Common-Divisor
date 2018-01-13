@@ -6,7 +6,7 @@ using namespace std;
 
 //Main Functions Start
 typedef struct {
-    llong scm;
+    llong lcm;
     llong gcd;
 } answer;
 
@@ -25,12 +25,12 @@ llong calculate(llong array[], llong length, llong index, FuncType func) {
     begin = clock();
     for (llong i = 2; i < length; i += 1) {
         temp.gcd = func(temp.gcd, array[i]).gcd;
-        temp.scm = func(temp.scm, array[i]).scm;
+        temp.lcm = func(temp.lcm, array[i]).lcm;
     }
     end = clock();
     cout << "Algorithm name: " << algorithmNames[index] << endl;
     cout << "Greatest Common Divisor: " << temp.gcd << endl;
-    cout << "Smallest Common Multiplier: " << temp.scm << endl;
+    cout << "Least Common Multiplier: " << temp.lcm << endl;
     cout << "Time used: " << end - begin << endl << endl;
 }
 
@@ -59,7 +59,7 @@ answer recursion(llong a, llong b) {
     llong temp = euclidean(a, b);
     answer Answer;
     Answer.gcd = temp;
-    Answer.scm = (a / temp) * b;
+    Answer.lcm = (a / temp) * b;
     return Answer;
 }
 //Recursion Ends
@@ -75,7 +75,7 @@ answer enumeration(llong a, llong b) {
     }
     answer Answer;
     Answer.gcd = temp;
-    Answer.scm = (a / temp) * b;
+    Answer.lcm = (a / temp) * b;
     return Answer;
 }
 //Enumeration Ends
@@ -93,7 +93,7 @@ answer multiplication(llong a, llong b) {
     }
     answer Answer;
     Answer.gcd = a / (temp / b);
-    Answer.scm = temp;
+    Answer.lcm = temp;
     return Answer;
 }
 //Multiplication Ends
@@ -134,7 +134,7 @@ answer shortDivision(llong a, llong b) {
     }
     answer Answer;
     Answer.gcd = temp;
-    Answer.scm = temp * a * b;
+    Answer.lcm = temp * a * b;
     return Answer;
 }
 //Short Division Ends
