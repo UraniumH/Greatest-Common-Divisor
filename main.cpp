@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 #include <time.h>
 
 #define llong long long
@@ -146,6 +147,10 @@ int main(int argc, char *argv[]) {
         for (llong i = 0; i < argc - 1; i += 1) {
             arr[i] = atoll(argv[i + 1]);
         }
+    } else if (argc == 2) {
+        cout << "Two or more parametres are needed! " << endl;
+        system("pause>nul");
+        return 0;
     } else {
         length = inputElements(arr);
         if (!length >= 2) {
