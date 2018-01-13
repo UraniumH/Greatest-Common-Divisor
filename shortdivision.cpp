@@ -38,6 +38,6 @@ int main(){
 	}
 	cout<<"Greatest common devisor: "<<temp<<endl;
 	cout<<"Smallest common multiplier: "<<temp*a*b<<endl;
-	getchar();
+	system("pause>nul");
 	return 0;
 }
