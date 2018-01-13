@@ -57,10 +57,10 @@ llong euclidean(llong a, llong b) {
 
 answer recursion(llong a, llong b) {
     llong temp = euclidean(a, b);
-    answer Answer;
-    Answer.gcd = temp;
-    Answer.lcm = (a / temp) * b;
-    return Answer;
+    answer ans;
+    ans.gcd = temp;
+    ans.lcm = (a / temp) * b;
+    return ans;
 }
 //Recursion Ends
 
@@ -73,10 +73,10 @@ answer enumeration(llong a, llong b) {
             break;
         }
     }
-    answer Answer;
-    Answer.gcd = temp;
-    Answer.lcm = (a / temp) * b;
-    return Answer;
+    answer ans;
+    ans.gcd = temp;
+    ans.lcm = (a / temp) * b;
+    return ans;
 }
 //Enumeration Ends
 
@@ -91,16 +91,16 @@ answer multiplication(llong a, llong b) {
             break;
         }
     }
-    answer Answer;
-    Answer.gcd = a / (temp / b);
-    Answer.lcm = temp;
-    return Answer;
+    answer ans;
+    ans.gcd = a / (temp / b);
+    ans.lcm = temp;
+    return ans;
 }
 //Multiplication Ends
 
 //Short Division Starts
 bool coprime(llong a, llong b) {
-    while (1) {
+    while (true) {
         llong t = a % b;
         if (t == 0) {
             break;
@@ -119,7 +119,7 @@ bool coprime(llong a, llong b) {
 answer shortDivision(llong a, llong b) {
     llong temp = 1;
     llong min = (a < b) ? a : b;
-    for (;;) {
+    while (true) {
         for (llong i = 1; i <= min; i += 1) {
             if (a % i == 0 && b % i == 0) {
                 temp *= i;
@@ -132,10 +132,10 @@ answer shortDivision(llong a, llong b) {
             break;
         }
     }
-    answer Answer;
-    Answer.gcd = temp;
-    Answer.lcm = temp * a * b;
-    return Answer;
+    answer ans;
+    ans.gcd = temp;
+    ans.lcm = temp * a * b;
+    return ans;
 }
 //Short Division Ends
 
@@ -154,7 +154,7 @@ int main(int argc, char *argv[]) {
             return 0;
         }
     }
-    cout<<endl;
+    cout << endl;
     calculate(arr, length, 0, recursion);
     calculate(arr, length, 1, enumeration);
     calculate(arr, length, 2, multiplication);
