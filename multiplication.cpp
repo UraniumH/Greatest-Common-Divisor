@@ -15,6 +15,6 @@ int main(){
 	}
 	cout<<"Greatest common devisor: "<<a/(temp/b)<<endl;
 	cout<<"Smallest common multiplier: "<<temp<<endl;
-	getchar();
+	system("pause>nul");
 	return 0;
 }
