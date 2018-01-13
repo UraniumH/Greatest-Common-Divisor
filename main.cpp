@@ -19,13 +19,13 @@ const string algorithmNames[4] = {
         "Short Division"
 };
 
-llong calculate(llong *array, llong length, llong index, FuncType func) {
+llong calculate(llong array[], llong length, llong index, FuncType func) {
     clock_t begin, end;
     answer temp = func(array[0], array[1]);
     begin = clock();
     for (llong i = 2; i < length; i += 1) {
-        temp.gcd = func(temp.gcd, array[i - 1]).gcd;
-        temp.scm = func(temp.scm, array[i - 1]).scm;
+        temp.gcd = func(temp.gcd, array[i]).gcd;
+        temp.scm = func(temp.scm, array[i]).scm;
     }
     end = clock();
     cout << "Algorithm name: " << algorithmNames[index] << endl;
