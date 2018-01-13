@@ -3,26 +3,26 @@
 #include <stdlib.h>
 #include <time.h>
 using namespace std;
-double zzxc(double fst,double scd){
+llong zzxc(llong fst,llong scd){
 	if(fst%scd==0){
 		return scd;
 	}else{
 		return zzxc(scd,fst%scd);
 	}
 }
-void recursion(double a,double b){
+void recursion(llong a,llong b){
 	clock_t begin,end;
 	begin = clock();
-	double temp=zzxc(a,b);
+	llong temp=zzxc(a,b);
 	end = clock();
 	cout<<"GCD calculated by recursion algorithm: "<<temp<<endl;
 	cout<<"SCM calculated by recursion algorithm: "<<(a/temp)*b<<endl;
 	cout<<"Time used: "<<(end-begin)<<endl<<endl;
 }
 
-void enumeration(double a,double b){
+void enumeration(llong a,llong b){
 	clock_t begin,end;
-	double temp;
+	llong temp;
 	begin = clock();
 	for(llong i=min(a,b);i>0;i-=1){
 		if(a%i==0&&b%i==0){
@@ -36,13 +36,13 @@ void enumeration(double a,double b){
 	cout<<"Time used: "<<(end-begin)<<endl<<endl;
 }
 
-void multiplication(double a,double b){
+void multiplication(llong a,llong b){
 	clock_t begin,end;
-	double temp;
+	llong temp;
 	begin = clock();
-	double max=(a>b)?a:b;
-	double min=(a<b)?a:b;
-	for(double i=1;;i+=1){
+	llong max=(a>b)?a:b;
+	llong min=(a<b)?a:b;
+	for(llong i=1;;i+=1){
 		if((max*i)%min==0){
 			temp=max*i;
 			break;
@@ -54,9 +54,9 @@ void multiplication(double a,double b){
 	cout<<"Time used: "<<(end-begin)<<endl<<endl;
 }
 
-bool hz(double a,double b){
+bool hz(llong a,llong b){
 	while(1){
-		int t = a%b;
+		llong t = a%b;
 		if(t == 0){
 			break;
 		}else{
@@ -70,13 +70,13 @@ bool hz(double a,double b){
 		return true;
 	}
 }
-void shortdivision(double a,double b){
+void shortdivision(llong a,llong b){
 	clock_t begin,end;
-	double temp=1;
+	llong temp=1;
 	begin = clock();
-	double min=(a<b)?a:b;
+	llong min=(a<b)?a:b;
 	for(;;){
-		for(double i=1;i<=min;i+=1){
+		for(llong i=1;i<=min;i+=1){
 			if(a%i==0&&b%i==0){
 				temp*=i;
 				a/=i;
@@ -95,7 +95,7 @@ void shortdivision(double a,double b){
 }
 
 int main(int argc,char *argv[]){
-	double a,b;
+	llong a,b;
 	if(argc==2){
 		a=atof(argv[0]);
 		b=atof(argv[1]);
