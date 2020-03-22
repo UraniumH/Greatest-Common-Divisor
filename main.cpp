@@ -1,8 +1,8 @@
 #include <iostream>
 #include <cstdlib>
-#include <time.h>
+#include <ctime>
 
-#define llong long long
+using llong=long long;
 using namespace std;
 
 //Main Functions Start
